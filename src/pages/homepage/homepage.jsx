@@ -46,6 +46,7 @@ export default class Homepage extends React.Component {
                                     status={value.status}
                                     location={value.location.name}
                                     origin={value.origin.name}
+                                    id={value.id}
                                     key={key}>
                 </CharacterComponent>
             );

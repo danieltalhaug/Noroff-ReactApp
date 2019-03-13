@@ -10,18 +10,20 @@ import {
 
 import App from './components/App/App.jsx';
 import Homepage from './pages/homepage/homepage';
+import CharacterSpecific from './pages/character-specific/character-specific';
 
 const routes = (
     <HashRouter>
         <Switch>
             <App>
                 <Route path="/" exact component={Homepage} />
+                <Route path="/character-specific/:id" component={CharacterSpecific} />
             </App>
         </Switch>
     </HashRouter>
 );
 
-const outlet = document.getElementById('app')
+const outlet = document.getElementById('app');
 
 const render = () => {
     ReactDOM.render(
