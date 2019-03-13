@@ -1,7 +1,6 @@
 // imports
 import React from 'react';
 import CharacterSpecificComponent from './../../components/character-specific-component/Character-Specific-Component';
-//import console = require('console');
 
 export default class CharacterSpecific extends React.Component {
 

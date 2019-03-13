@@ -1,3 +1,4 @@
+// imports
 import React from 'react';
 
 export default class CharacterComponent extends React.Component {

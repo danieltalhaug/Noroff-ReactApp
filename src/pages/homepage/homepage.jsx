@@ -2,7 +2,8 @@
 import React from 'react';
 import Layout from './../../components/Layout/Layout';
 import CharacterComponent from './../../components/Character-component/Character-Component';
-//import console = require('console');
+import Search from './../../components/search/Search';
+
 
 export default class Homepage extends React.Component {
     constructor(props) {
@@ -11,6 +12,8 @@ export default class Homepage extends React.Component {
             rickMortyObj: [],
             rickMortyCards: []
         }
+        this.getData = this.getData.bind(this);
+        this.handleSearchTerm = this.handleSearchTerm.bind(this);
     }
 
     componentDidMount() {
@@ -27,17 +30,27 @@ export default class Homepage extends React.Component {
         .then(result => {
             app.setState({
                 rickMortyObj: result.results
-            })
-            console.log(app.state.rickMortyObj);
+            });
         });
     }
-
-    render() {
+    
+    handleSearchTerm(searchTerm) {
         const app = this;
+        let characterObj = app.state.rickMortyObj;
 
-        const rickMortyArray = app.state.rickMortyObj;
-        console.log('rickMortyArray', rickMortyArray)
-        rickMortyArray.forEach((value, key)=> {
+        let characters = characterObj.filter((character) => {
+            return character.name.indexOf(searchTerm) !== -1;
+        });
+        app.setState({
+            rickMortyCards: [],
+            rickMortyObj: characters
+        },app.createCards());
+    }
+
+    createCards(){
+        const app = this;
+        let rickMortyArray = app.state.rickMortyObj;
+        rickMortyArray.forEach((value, key) => {
             app.state.rickMortyCards.push(
                 <CharacterComponent image={value.image}
                                     name={value.name}
@@ -51,16 +64,24 @@ export default class Homepage extends React.Component {
                 </CharacterComponent>
             );
         });
+    }
 
-        return(
+    render() {
+        const app = this;
+        app.createCards();
+        return (
             <div className="[ row ]">
                 <div className="[ col-sm-12 ]">
                     <h2>
                         Home Page
                     </h2>
                 </div>
-                <div className="col-sm-12"></div>
-                {this.state.rickMortyCards}
+                <div className="[ col-sm-12 ]">
+                    <Search onSearchTerm={app.handleSearchTerm}></Search>
+                </div>
+                <div className="[ col-sm-12 ]">
+                    {app.state.rickMortyCards}
+                </div>
             </div>
         );
     }

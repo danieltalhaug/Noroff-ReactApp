@@ -8,10 +8,10 @@ export default class CharacterSpecificComponent extends React.Component {
                 <div className="[ col-sm-12 ]">
                     <br/><br/><br/>
                 </div>
-                <div className="col-sm-4">
+                <div className="[ col-sm-4 ]">
                     <img src={this.props.image} alt=""/>
                 </div>
-                <div className="col-sm-8">
+                <div className="[ col-sm-8 ]">
                     <h2>
                         {this.props.name}
                     </h2>
