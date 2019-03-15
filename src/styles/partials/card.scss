@@ -1,11 +1,35 @@
 .card {
-    border: 2px solid black;
-    border-radius: 5px;
+    border-radius: $soft-border;
     padding: 25px;
     margin-top: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 
-    img {
+    &__img {
         width: 100%;
-        border-radius: 5px;
+        border-radius: $soft-border;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    &__links {
+        text-decoration: none;
+        color:$dark-green;
+
+        &:hover {
+            text-decoration: none;
+            color: lighten( $dark-green, 15% );
+        }
+        
+        &--title {
+            text-align: center;
+            font-size: 2em;
+            color: $pink;
+            
+            &:hover {
+                color: lighten( $pink, 15% ); 
+            }
+        }
     }
 }

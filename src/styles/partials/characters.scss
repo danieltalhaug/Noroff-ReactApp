@@ -1,0 +1,22 @@
+.row-space {
+    margin: 40px 0 40px 0;
+}
+.character-container {
+    background-color: white;
+}
+
+.character {
+    border-radius: $soft-border;
+    margin:40px 0 40px 0;
+    background-color: white;
+    padding: 40px 0 40px 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+    &__text {
+        color: $dark-green;
+
+        &--title h2 {
+            color: $pink;
+        }
+    }
+}

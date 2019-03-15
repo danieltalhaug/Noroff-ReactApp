@@ -1,0 +1,8 @@
+.form-control {
+    margin-top: 20px;
+    &:focus {
+        color: $dark-green;
+        border-color: $toxic-green;
+        box-shadow: $toxic-green;
+    }
+}
